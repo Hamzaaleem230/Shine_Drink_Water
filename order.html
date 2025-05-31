@@ -6,29 +6,41 @@
   <title>Confirm Your Order</title>
   <link rel="stylesheet" href="order.css" />
   <style>
-    .popup {
-      display: none;
-      position: fixed;
-      top: 10px; /* ✅ Top of screen */
-      left: 50%;
-      transform: translateX(-50%) translateY(-10px); /* ✅ Center horizontally + slide up */
-      background-color: #4CAF50;
-      color: white;
-      padding: 16px 28px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      z-index: 9999;
-      font-size: 16px;
-      opacity: 0;
-      transition: all 0.4s ease; /* ✅ Smooth animation */
-    }
+  .popup {
+    display: none;
+    position: fixed;
+    top: 2vh; /* ✅ Responsive vertical spacing */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 2rem; /* ✅ Relative padding for scalability */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    font-size: 1rem;
+    max-width: 90vw; /* ✅ Prevents overflow on small screens */
+    text-align: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    word-wrap: break-word;
+  }
 
-    .popup.show {
-      display: block;
-      opacity: 1;
-      transform: translateX(-50%) translateY(0); /* ✅ Slide down into view */
+  .popup.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ✅ Optional: Adjust font size for very small screens */
+  @media (max-width: 400px) {
+    .popup {
+      font-size: 0.9rem;
+      padding: 0.75rem 1.25rem;
     }
-  </style>
+  }
+</style>
+
 </head>
 
 <body>
