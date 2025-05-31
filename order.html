@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Your Order</title>
+  <link rel="stylesheet" href="order.css" />
+  <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 10px; /* ✅ Top of screen */
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px); /* ✅ Center horizontally + slide up */
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      font-size: 16px;
+      opacity: 0;
+      transition: all 0.4s ease; /* ✅ Smooth animation */
+    }
+
+    .popup.show {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0); /* ✅ Slide down into view */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>Confirm Your Order</h1>
+    <p>Please fill in your details to place the order.</p>
+
+    <form id="orderForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        pattern="[0-9]{11}"
+        placeholder="03XXXXXXXXX"
+      />
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" name="address" required></textarea>
+
+      <label for="product">Select Product</label>
+      <select id="product" name="product" required>
+        <option value="">-- Select Product --</option>
+        <option value="200ml Bottle">200ml Bottle - Rs. 50</option>
+        <option value="250ml Bottle">250ml Bottle - Rs. 100</option>
+        <option value="300ml Bottle">300ml Bottle - Rs. 150</option>
+        <option value="500ml Bottle">500ml Bottle - Rs. 200</option>
+        <option value="750ml Bottle">750ml Bottle - Rs. 250</option>
+        <option value="1 liter Bottle">1 liter Bottle - Rs. 300</option>
+        <option value="1.5 liter Bottle">1.5 liter Bottle - Rs. 350</option>
+        <option value="2 liter Bottle">2 liter Bottle - Rs. 400</option>
+        <option value="3 liter Bottle">3 liter Bottle - Rs. 450</option>
+        <option value="5 liter Bottle">5 liter Bottle - Rs. 500</option>
+        <option value="10 liter Bottle">10 liter Bottle - Rs. 1000</option>
+        <option value="12 liter Bottle">12 liter Bottle - Rs. 1100</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        min="1"
+        value="1"
+        required
+      />
+
+      <button type="button" onclick="confirmOrder()" class="submit-btn">Confirm Order</button>
+
+      <!-- ✅ Popup Message -->
+      <div id="confirmationPopup" class="popup">
+        ✅ Order confirmed successfully! Thank you.
+      </div>
+    </form>
+  </div>
+
+  <!-- ✅ JavaScript -->
+  <script>
+    function confirmOrder() {
+      const form = document.getElementById("orderForm");
+
+      if (form.checkValidity()) {
+        const popup = document.getElementById("confirmationPopup");
+        popup.classList.add("show");
+
+        setTimeout(() => {
+          popup.classList.remove("show");
+          window.location.href = "index.html"; // ✅ Redirect after confirmation
+        }, 3000);
+      } else {
+        form.reportValidity(); // ✅ Show validation errors if any
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Shine Drink Water</title>
+  <style>
+    /* Simple button style for dark mode toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 0.5rem 1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      font-weight: bold;
+    }
+    .dark-mode-toggle:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle Button -->
+  <button class="dark-mode-toggle" id="darkModeToggle">Dark Mode</button>
+
+  <!-- Navigation -->
+  <nav>
+    <button onclick="goToPage(0)">Home</button>
+    <button onclick="goToPage(1)">About</button>
+    <button onclick="goToPage(2)">Delivery</button>
+  </nav>
+
+  <!-- Main container for pages -->
+  <div class="container" id="scrollContainer">
+
+    <!-- Home Page -->
+    <div class="page home">
+      <header>
+        <h1>Shine Drink Water</h1>
+        <p>Pure • Healthy • Trusted</p>
+      </header>
+      <div class="product-grid">
+        <!-- 200ml water bottles -->
+        <div class="product">
+          <img src="/images/200ml.jpg" alt="200ml Bottle">
+          <h3>200 ml Bottle</h3>
+          <p>Rs. 	50</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 250ml water bottles -->
+        <div class="product">
+          <img src="/images/250ml.jpg" alt="250ml Bottle">
+          <h3>250 ml Bottle</h3>
+          <p>Rs. 	100</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 300ml water bottles -->
+        <div class="product">
+          <img src="/images/300ml.jpg" alt="300ml Bottle">
+          <h3>300 ml Bottle</h3>
+          <p>Rs. 150</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 500ml water bottles -->
+        <div class="product">
+          <img src="/images/500ml.jpg" alt="500ml Bottle">
+          <h3>500 ml Bottle</h3>
+          <p>Rs. 	200</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 750ml water bottles -->
+        <div class="product">
+          <img src="/images/750ml.jpg" alt="750ml Bottle">
+          <h3>750 ml Bottle</h3>
+          <p>Rs. 	250</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 1 liter water bottles -->
+        <div class="product">
+          <img src="/images/1 liter.jpg" alt="1 liter Bottle">
+          <h3>1 liter Bottle</h3>
+          <p>Rs. 300</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 1.5 liter water bottles -->
+        <div class="product">
+          <img src="/images/1.5L.jpg" alt="1.5 liter Bottle">
+          <h3>1.5 liter Bottle</h3>
+          <p>Rs. 	350</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 2 liter water bottles -->
+        <div class="product">
+          <img src="/images/2 liter.jpg" alt="2 liter Bottle">
+          <h3>2 liter Bottle</h3>
+          <p>Rs. 	400</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 3 liter water bottles -->
+        <div class="product">
+          <img src="/images/3 liter.jpg" alt="3 liter Bottle">
+          <h3>3 liter Bottle</h3>
+          <p>Rs. 	450</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 5 liter water bottles -->
+        <div class="product">
+          <img src="/images/5 liter.jpg" alt="5 liter Bottle">
+          <h3>5 liter Bottle</h3>
+          <p>Rs. 	500</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 10 liter water bottles -->
+        <div class="product">
+          <img src="/images/10 liter.jpg" alt="10 liter Bottle">
+          <h3>10 liter Bottle</h3>
+          <p>Rs. 	1000</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+        <!-- 12 liter water bottles -->
+        <div class="product">
+          <img src="/images/12 liter.jpg" alt="12 liter Bottle">
+          <h3>12 liter Bottle</h3>
+          <p>Rs. 	1100</p>
+          <a href="order.html"><button class="button">Order Now</button></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Page -->
+    <div class="page about">
+      <header>
+        <h1>About Us</h1>
+      </header>
+      <p>We provide premium quality drinking water with guaranteed purity and taste. Trusted since 2020, we serve homes and businesses across Pakistan.</p>
+      <p>Our mission is your hydration and health. Every bottle is filtered, purified, and quality-checked before delivery.</p>
+    </div>
+
+    <!-- Delivery Page -->
+    <div class="page delivery">
+      <header>
+        <h1>Home Delivery</h1>
+      </header>
+      <p>Fast and secure home delivery service in Lahore, Karachi, Islamabad, and more.</p>
+      <p>📞 Call: 0300-1234567</p>
+      <a class="btn-order" href="https://wa.me/923001234567" target="_blank">Order on WhatsApp</a>
+    </div>
+
+  </div>
+
+  <script>
+    function goToPage(index) {
+      const container = document.getElementById("scrollContainer");
+      container.style.transform = `translateX(-${index * 100}vw)`;
+    }
+
+    // Dark Mode Toggle Logic
+    const toggleBtn = document.getElementById('darkModeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if(document.body.classList.contains('dark-mode')){
+        toggleBtn.textContent = 'Light Mode';
+      } else {
+        toggleBtn.textContent = 'Dark Mode';
+      }
+    });
+  </script>
+
+</body>
+</html>

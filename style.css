@@ -1,0 +1,231 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f9fc;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Splash Screen */
+#splash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #2196F3;
+  z-index: 2000;
+  animation: fadeOut 1.5s ease-in-out 2s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #2196F3;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav button {
+  background-color: white;
+  color: #2196F3;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #e3f2fd;
+}
+
+/* Container layout */
+.container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin-top: 60px;
+  flex-direction: row;
+  width: 300vw; /* fallback */
+}
+
+.page {
+  width: 100vw;
+  padding: 40px 20px;
+  flex-shrink: 0;
+  min-height: calc(100vh - 60px);
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  color: #d32f2f;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+header p {
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Product grid */
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  width: 260px;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.product p {
+  color: #555;
+}
+
+.button {
+  background: linear-gradient(135deg, #00bfff, #007bff);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  margin-top: 12px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* About & Delivery Pages */
+.about p, .delivery p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.delivery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-order {
+  display: block;
+  margin: 20px auto 0;
+  padding: 12px 24px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+  background-color: #1eb75e;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-grid {
+    gap: 20px;
+  }
+
+  .product {
+    width: 45%;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: auto !important;
+  }
+
+  .page {
+    width: 100%;
+  }
+
+  .product {
+    width: 90%;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+}
